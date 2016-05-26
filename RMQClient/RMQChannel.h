@@ -50,6 +50,11 @@
           properties:(nonnull NSArray *)properties
              options:(RMQBasicPublishOptions)options;
 
+- (void)basicPublishData:(NSData *)contentBodyData
+              routingKey:(NSString *)routingKey
+                exchange:(NSString *)exchange
+              properties:(NSArray *)properties
+                 options:(RMQBasicPublishOptions)options;
 
 -  (void)basicGet:(nonnull NSString *)queue
           options:(RMQBasicGetOptions)options
