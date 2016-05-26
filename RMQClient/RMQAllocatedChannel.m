@@ -202,11 +202,6 @@
           properties:(NSArray *)properties
              options:(RMQBasicPublishOptions)options {
     
-    RMQBasicPublish *publish = [[RMQBasicPublish alloc] initWithReserved1:[[RMQShort alloc] init:0]
-                                                                 exchange:[[RMQShortstr alloc] init:exchange]
-                                                               routingKey:[[RMQShortstr alloc] init:routingKey]
-                                                                  options:options];
-    
     NSData *contentBodyData = [message dataUsingEncoding:NSUTF8StringEncoding];
     
     [self basicPublishData:contentBodyData routingKey:routingKey exchange:exchange properties:properties options:options];
@@ -219,6 +214,12 @@
             exchange:(NSString *)exchange
           properties:(NSArray *)properties
              options:(RMQBasicPublishOptions)options {
+    
+    RMQBasicPublish *publish = [[RMQBasicPublish alloc] initWithReserved1:[[RMQShort alloc] init:0]
+                                                                 exchange:[[RMQShortstr alloc] init:exchange]
+                                                               routingKey:[[RMQShortstr alloc] init:routingKey]
+                                                                  options:options];
+    
     
     RMQContentBody *contentBody = [[RMQContentBody alloc] initWithData:contentBodyData];
     
